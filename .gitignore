@@ -1,0 +1,6 @@
+work/
+*.wlf
+*.vcd
+*.fst
+*.log
+.vscode/
