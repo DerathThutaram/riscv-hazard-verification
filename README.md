@@ -10,4 +10,5 @@ RTL design and verification of hazard detection and forwarding logic for a 5-sta
 - [x] Day 6: Forwarding Unit Verification
 - [x] Day 7: Full System Integration & Simulation Setup
 - [x] Day 8: Simulation Execution & Verification
+- [x] Day 9: GTKWave Timing Diagram Verification
 -
