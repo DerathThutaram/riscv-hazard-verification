@@ -1,0 +1,20 @@
+# Read RTL design files
+read_verilog -sv rtl/forwarding_unit.sv
+read_verilog -sv rtl/hazard_detection_unit.sv
+
+# -------------------------------------------------------------
+# 1. Forwarding Unit Sky130 Standard Cell Mapping
+# -------------------------------------------------------------
+hierarchy -check -top forwarding_unit
+synth -top forwarding_unit
+
+# Map to Sky130 standard cells
+dfflibmap -liberty sky130_fd_sc_hd__tt_025C_1v80.lib
+abc -liberty sky130_fd_sc_hd__tt_025C_1v80.lib
+clean
+
+# Print standard cell count and total silicon area (µm²)
+stat -liberty sky130_fd_sc_hd__tt_025C_1v80.lib
+
+# Export gate-level netlist for OpenSTA power analysis
+write_verilog -noattr forwarding_synth_sky130.v
