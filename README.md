@@ -14,12 +14,7 @@ RTL design and verification of hazard detection and forwarding logic for a 5-sta
 - [x] Day 10: Final Documentation and Repository clean up
 ![Simulation Waveform](waveform.png)
 ## Hardware Performance & Efficiency Summary
-The hazard management subsystem was synthesized using Yosys targeting the SkyWater 130nm standard cell library (`sky130_fd_sc_hd`) under standard operating conditions (1.8V supply at a 100 MHz reference clock). 
-### How It Works & Key Results
-Both the Forwarding Unit and Hazard Detection Unit are built entirely from combinational logic gates, meaning they make decisions instantly without needing internal registers, flip-flops, or extra clock cycles.
-Forwarding Unit: Uses 34 logic gates and occupies 252.74 µm² of silicon area. It actively checks register dependencies across pipeline stages to steer ALU results forward, consuming around 33.73 µW of power. It evaluates dependencies in about 0.83 nanoseconds, using less than 9% of a standard 10 ns clock cycle.
-Hazard Detection Unit: A compact design using 18 logic gates across 131.38 µm² of silicon area. It monitors for unavoidable load-use dependencies and injects a single pipeline bubble when needed, drawing roughly 17.85 µW of power with an evaluation time of just 0.62 nanoseconds.
-Combined Subsystem: Together, the entire protection system requires only 52 standard cells, takes up 384.12 µm² of silicon space, and dissipates approximately 51.58 µW of total power.
+Full Synthesis & Characterization Metrics:** For a consolidated breakdown of area, timing slack, power dissipation, and academic benchmarks, refer to [synthesis_characterization_summary.txt](./synthesis_characterization_summary.txt).
 ### Performance vs. Prior Academic Literature
 When compared to classical stall-only RISC-V cores and typical reference designs published in literature, this implementation demonstrates three clear advantages:
 1. 56.5% Throughput Speedup: Resolves all arithmetic data hazards on the fly without inserting stall cycles, reducing average workload cycles per instruction (CPI) from 1.80 down to 1.15.
