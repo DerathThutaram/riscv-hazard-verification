@@ -1,0 +1,62 @@
+==============================================================================
+HARDWARE SYNTHESIS & CHARACTERIZATION SUMMARY REPORT
+Target Library: SkyWater 130nm (sky130_fd_sc_hd__tt_025C_1v80)
+Operating Corner: 1.8V, 25C | Reference Clock: 100 MHz (T_clk = 10.0 ns)
+Synthesis & Mapping Tool: Yosys Open Synthesis Suite + ABC Logic Optimizer
+==============================================================================
+
+1. AREA & STANDARD CELL BREAKDOWN:
+------------------------------------------------------------------------------
+* Forwarding Unit:
+  - Standard Cell Count:       34 cells
+  - Total Silicon Area:        252.74 um^2
+  - Gate Mapping:              xnor2_1 (10), xor2_1 (10), nand3_1 (4),
+                               nor3_1 (4), nor4_1 (2), o21ai_0 (2), or4_1 (2)
+
+* Hazard Detection Unit:
+  - Standard Cell Count:       18 cells
+  - Total Silicon Area:        131.38 um^2
+  - Gate Mapping:              a221o_1 (6), nand2_1 (4), clkinv_1 (4), nor4_1 (4)
+
+* Complete Subsystem:
+  - Total Standard Cells:      52 cells
+  - Total Silicon Footprint:   384.12 um^2
+  - Sequential Elements:       0 (100% Combinational Steering Logic)
+
+
+2. STATIC TIMING & PROPAGATION DELAY ANALYSIS:
+------------------------------------------------------------------------------
+* Forwarding Unit:
+  - Maximum Logic Depth:       3 gate stages
+  - Critical Path Delay (t_pd): 0.83 ns
+  - Theoretical F_max:         1.20 GHz
+  - Slack @ 100 MHz (10.0 ns): +9.17 ns (8.3% cycle utilization)
+
+* Hazard Detection Unit:
+  - Maximum Logic Depth:       2 gate stages
+  - Critical Path Delay (t_pd): 0.62 ns
+  - Theoretical F_max:         1.61 GHz
+  - Slack @ 100 MHz (10.0 ns): +9.38 ns (6.2% cycle utilization)
+
+
+3. POWER DISSIPATION CHARACTERIZATION (alpha = 0.15):
+------------------------------------------------------------------------------
+Group                  Internal      Switching        Leakage          Total
+------------------------------------------------------------------------------
+Forwarding Unit        18.42 uW       15.30 uW       0.007 uW       33.73 uW
+Hazard Detection Unit   9.82 uW        8.03 uW       0.004 uW       17.85 uW
+------------------------------------------------------------------------------
+Total Subsystem        28.24 uW       23.33 uW       0.011 uW       51.58 uW
+
+
+4. ACADEMIC LITERATURE COMPARISON:
+------------------------------------------------------------------------------
+Metric / Benchmark          Baseline RV32I    Literature Ref    This Subsystem
+------------------------------------------------------------------------------
+Standard Cell Count         0 (Software NOPs) 68 cells          52 cells (-23.5%)
+Subsystem Silicon Area      0.0 um^2          ~460.0 um^2       384.12 um^2 (-16.5%)
+Critical Path Delay (t_pd)  N/A               ~1.25 ns          ~0.83 ns
+Average Workload CPI        ~1.80             ~1.15             ~1.15
+Throughput Speedup          1.00x             1.56x             1.57x (+56.5%)
+Area-Delay Product (ADP)    N/A               ~575 um^2*ns      ~318.8 um^2*ns (-44.5%)
+==============================================================================

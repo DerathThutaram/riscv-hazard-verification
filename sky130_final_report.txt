@@ -1,4 +1,3 @@
-
  /----------------------------------------------------------------------------\
  |  yosys -- Yosys Open SYnthesis Suite                                       |
  |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
